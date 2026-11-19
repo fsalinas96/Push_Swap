@@ -58,7 +58,7 @@ The project implements three approaches to compare sorting strategies under the 
 
 | Strategy | Algorithm | Stack-operation complexity |
 | --- | --- | --- |
-| **Simple** | Two-stack selection sort with bidirectional rotation | **O(n²)** |
+| **Simple** | Selection Sort for two stacks | **O(n²)** |
 | **Medium** | Chunk-based sorting | **O(n√n)** |
 | **Complex** | Binary LSD radix sort | **O(n log n)** |
 
@@ -68,9 +68,9 @@ Each distinct input value receives a rank from `0` to `n - 1`, preserving its re
 
 ### Simple — Selection Sort Adapted to Two Stacks
 
-The algorithm searches for ranks in ascending order. For each rank, it finds the corresponding element in A, chooses whichever direction (`ra` or `rra`) brings it to the top in fewer rotations, and pushes it to B. Once A is empty, all elements are pushed back to A in sorted order.
+An adaptation of Selection Sort for two stacks. The algorithm locates the next smallest ranked element and brings it to the top of stack A using rotations (`ra` or `rra`). It then pushes the element to stack B and repeats the process. Finally, all elements are pushed back to A in sorted order.
 
-**Why this approach:** it is straightforward to reason about, easy to verify, and provides a clear **O(n²)** baseline. Bidirectional rotation reduces unnecessary movements without changing its asymptotic complexity.
+**Why this approach:** Simple, predictable, and easy to implement and debug. Uses bidirectional rotations to reduce unnecessary operations while maintaining **O(n²)** complexity.
 
 ### Medium — Chunk-Based Sorting
 
@@ -88,7 +88,7 @@ The algorithm examines the bits of each rank, starting at the least significant 
 
 ## Bonus
 
-The bonus component is included in the project and was developed collaboratively. It supports checking the validity of a sequence of Push Swap operations and the resulting stack state.
+The bonus component is included in the project and was developed collaboratively. It supports checking the validity of a sequence of Push Swap operations and the resulting stack state. We used the functions we created in previous project as Libft, ft_printf and Get Next Line
 
 ## Team Contributions
 
@@ -107,7 +107,9 @@ The bonus component is included in the project and was developed collaboratively
 - [Harvard CS50 — Lecture 3: Algorithms](https://cs50.harvard.edu/x/2025/weeks/3/) — video explanations of sorting algorithms and asymptotic complexity.
 - [GNU Make Manual](https://www.gnu.org/software/make/manual/make.html) — Makefile and build-system reference.
 - Additional educational videos explaining sorting algorithms and their trade-offs.
+- [Push Swap Tester](https://github.com/SimonCROS/push_swap_tester/tree/v2) — One of the seven tests we used to test our program.
 
 ### AI Usage
 
-AI was used as a **learning and debugging aid**: to clarify C and algorithmic concepts, discuss the suitability of different sorting strategies, review logic and edge cases, and help investigate implementation errors. AI also assisted with the organization and wording of this README. The algorithm selection, integration, and final validation remained the responsibility of the project contributors.
+AI was used as a **learning and debugging aid**: to clarify C and algorithmic concepts, discuss the suitability of different sorting strategies, review logic and edge cases, and help investigate implementation errors. AI also assisted with the organization and wording of this README. 
+The algorithm selection, integration, and final validation remained the responsibility of the project contributors.
